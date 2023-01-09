@@ -10,7 +10,7 @@ const TopicList = () => {
     useEffect (() => {
         setIsLoading(true)
         getTopics().then(res => {
-            setTopicList(res.data.topics.map(topic => {return topic.slug}))
+            setTopicList(res.topics.map(topic => {return topic.slug}))
             setIsLoading(false)
         })
     },[])

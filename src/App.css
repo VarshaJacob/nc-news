@@ -81,5 +81,15 @@
   margin: 10px;
   text-align: center;
   color: #2b6777;
-  font:message-box
+  
+}
+
+.Article:hover {
+  background-color: #79cdbb;
+}
+
+.VoteButton {
+  display: flex;
+  width: auto;
+  height: 50px;
 }
