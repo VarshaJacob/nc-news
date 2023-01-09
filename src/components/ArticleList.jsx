@@ -4,14 +4,19 @@ import { getArticles } from "../api";
 const ArticleList = () => {
 
     const [articleList, setArticleList] = useState([])
+    const [isLoading,setIsLoading] = useState(true)
 
     useEffect(() => {
+        setIsLoading(true)
         getArticles().then(res => {
             setArticleList(res.data.articles)
+            setIsLoading(false)
         })
     },[])
 
-    console.log(articleList)
+    if (isLoading) {
+        return <p>Articles are Loading ...</p>
+    }
 
     return (
         <div className="ArticleList">

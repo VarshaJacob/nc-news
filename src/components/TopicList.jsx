@@ -5,12 +5,19 @@ import '../App.css'
 const TopicList = () => {
 
     const [topicList, setTopicList] = useState([])
+    const [isLoading,setIsLoading] = useState(true)
 
     useEffect (() => {
+        setIsLoading(true)
         getTopics().then(res => {
             setTopicList(res.data.topics.map(topic => {return topic.slug}))
+            setIsLoading(false)
         })
     },[])
+
+    if (isLoading) {
+        return <p>Loading ...</p>
+    }
 
     return (
         <div className='TopicList'>
