@@ -11,7 +11,6 @@ const Nav = () => {
                     path="/" element={<TopicArticleDisplay />}
                 ></Route>
                 <Route path="/articles/:article_id" element={<SingleArticle />}></Route>
-                <Route path="/articles/:article_id/comments" element={<CommentList />}></Route>
             </Routes>
         </div>
     )

@@ -1,14 +1,9 @@
 const AddComment = () => {
     return (
-        <div className="AddComment">
-            <section  >
+        <form className="AddComment">
             <input type="text" placeholder="Comment..." className="AddCommentInput"></input>
-            </section>
-           
             <button className="PostButton">Post</button>
-            
-            
-        </div>
+        </form>
     )
 };
 

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getArticleById } from "../api";
-import { Link } from 'react-router-dom';
+import CommentList from "./CommentList";
 
 const SingleArticle = () => {
 
@@ -21,6 +21,7 @@ const SingleArticle = () => {
         return <p>Loading ...</p>
     }
 
+
     return (
         <div>
             <section className="ArticleDetails">
@@ -34,12 +35,11 @@ const SingleArticle = () => {
             <button className="UpVoteButton"></button>
             <button className="DownVoteButton"></button>
             </section>
-            <section className="VoteSection">
-                <Link to={`/articles/${articleDisplay.article_id}/comments`} style={{textDecoration:'none'}}>
-                <button className="CommentButton">Comment</button>
-                </Link>
+            <section className="CommentList">
+                <details><summary>Comments</summary>
+                    <CommentList />
+                </details>
             </section>
-            
         </div>
        
     )
