@@ -88,8 +88,51 @@
   background-color: #79cdbb;
 }
 
-.VoteButton {
+.ArticleDetails {
+  padding: 15px 15px;
+}
+
+.ArticleAuthor {
+  text-align: right;
+}
+
+.ArticleDate {
+  text-align: right;
+}
+
+.ArticleTitle {
+  text-align: center;
+}
+
+.ArticleBody {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.ArticleVotes {
+  text-align: center;
+}
+
+.VoteSection {
   display: flex;
-  width: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.UpVoteButton {
+  background: url('https://toppng.com//public/uploads/preview/like-thumb-up-vote-comments-vote-icon-11563607354tsn0l35fca.png') no-repeat;
+  background-size: cover;
+  display: inline;
+  width: 50px;
   height: 50px;
+  margin: 5px;
+}
+
+.DownVoteButton {
+  background: url('https://static.thenounproject.com/png/3139163-200.png') no-repeat;
+  background-size: cover;
+  display: inline;
+  width: 50px;
+  height: 50px;
+  margin: 5px;
 }
