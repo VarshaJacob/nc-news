@@ -26,7 +26,7 @@ const ArticleList = () => {
                 {articleList.map(article => {
                     return (
                         <Link to={`/articles/${article.article_id}`} style={{textDecoration:'none'}}>
-                        <li className="Article">
+                        <li className="ArticleCard">
                         <h3>{article.title}</h3>
                         <p>Author: {article.author}</p>
                         <p>Topic: {article.topic}</p>
