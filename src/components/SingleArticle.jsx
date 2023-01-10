@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getArticleById } from "../api";
+import { Link } from 'react-router-dom';
 
 const SingleArticle = () => {
 
@@ -34,7 +35,9 @@ const SingleArticle = () => {
             <button className="DownVoteButton"></button>
             </section>
             <section className="VoteSection">
-            <button className="CommentButton">Comment</button>
+                <Link to={`/articles/${articleDisplay.article_id}/comments`} style={{textDecoration:'none'}}>
+                <button className="CommentButton">Comment</button>
+                </Link>
             </section>
             
         </div>
