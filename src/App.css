@@ -47,6 +47,10 @@
   background-color: white;
 }
 
+.Loading {
+  margin: 10px;
+}
+
 .TopicList {
   text-indent: 45%;
 }

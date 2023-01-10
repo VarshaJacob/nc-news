@@ -16,7 +16,7 @@ const TopicList = () => {
     },[])
 
     if (isLoading) {
-        return <p>Loading ...</p>
+        return <p className="Loading">Loading ...</p>
     }
 
     return (
