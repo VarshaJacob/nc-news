@@ -14,9 +14,11 @@ const ArticleVotes = ({article_id,articleVotes}) => {
     const updateVote = (changeVote) => {
         setIsError(false)
         setVoteChange(changeVote)
+        setUpdateArticleVotes((currVote) => currVote+voteChange)
         patchArticleUpVote(article_id,changeVote)
         .then(res => {
             setUpdateArticleVotes(res.updatedArticle.votes)
+            setUpdateArticleVotes((currVote) => currVote-voteChange)
             setVoteChange(0)
         })
         .catch(err => {
@@ -29,7 +31,7 @@ const ArticleVotes = ({article_id,articleVotes}) => {
     return ( 
     <div>
         <section>
-        <p className='ArticleVotes'>Votes: {updateArticleVotes + voteChange}</p>
+        <p className='ArticleVotes'>Votes: {updateArticleVotes}</p>
         </section>
         <section className="VoteSection">
         <button className="UpVoteButton" onClick={() => updateVote(1)}></button>
