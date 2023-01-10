@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
 import { getArticles } from "../api";
+
 
 const ArticleList = () => {
 
@@ -9,7 +11,7 @@ const ArticleList = () => {
     useEffect(() => {
         setIsLoading(true)
         getArticles().then(res => {
-            setArticleList(res.data.articles)
+            setArticleList(res.articles)
             setIsLoading(false)
         })
     },[])
@@ -23,11 +25,14 @@ const ArticleList = () => {
             <ol>
                 {articleList.map(article => {
                     return (
-                       <li className="Article">
+                        <Link to={`/articles/${article.article_id}`} style={{textDecoration:'none'}}>
+                        <li className="Article">
                         <h3>{article.title}</h3>
                         <p>Author: {article.author}</p>
                         <p>Topic: {article.topic}</p>
                         </li>
+                        </Link>
+                       
                     )
                 })}
             </ol>
