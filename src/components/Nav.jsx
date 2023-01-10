@@ -1,6 +1,7 @@
 import {Routes, Route} from 'react-router-dom';
 import SingleArticle from './SingleArticle';
 import TopicArticleDisplay from './TopicArticleDisplay';
+import CommentList from './CommentList';
 
 const Nav = () => {
     return (

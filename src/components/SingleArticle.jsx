@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getArticleById } from "../api";
+import CommentList from "./CommentList";
 
 const SingleArticle = () => {
 
@@ -20,6 +21,7 @@ const SingleArticle = () => {
         return <p>Loading ...</p>
     }
 
+
     return (
         <div>
             <section className="ArticleDetails">
@@ -33,10 +35,11 @@ const SingleArticle = () => {
             <button className="UpVoteButton"></button>
             <button className="DownVoteButton"></button>
             </section>
-            <section className="VoteSection">
-            <button className="CommentButton">Comment</button>
+            <section className="CommentList">
+                <details><summary>Comments</summary>
+                    <CommentList />
+                </details>
             </section>
-            
         </div>
        
     )
