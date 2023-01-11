@@ -4,7 +4,6 @@ import { postComment } from "../api";
 const AddComment = ({article_id}) => {
 
     const [commentInput, setCommentInput] = useState("")
-    const [newComment,setNewComment] = useState("")
     const [addedCommentList, setAddedCommentList] = useState([])
     const [dataValid, setDataValid] = useState(true)
     const [isPosting,setIsPosting] = useState(false)
@@ -22,10 +21,8 @@ const AddComment = ({article_id}) => {
             setIsPosting(true)
             postComment(article_id,commentInput)
             .then(res => {
-                console.log(res)
                 setIsPosting(false)
                 setIsPosted(true)
-                setNewComment(res.comment)
                 setAddedCommentList((currList) => [...currList,res.comment])
             })
             setCommentInput("")
