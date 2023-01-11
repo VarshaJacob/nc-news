@@ -25,8 +25,9 @@ const CommentList = () => {
     }
 
     return (
-        <div className="CommentList">
-            <ol>
+        <div >
+            <AddComment article_id={article_id} setCommentList={setCommentList}/>
+            <ol className="CommentList">
                 {commentList.map(comment => {
                     return (
                         <li className="CommentDetails" key={comment.comment_id}>
@@ -41,7 +42,6 @@ const CommentList = () => {
                     )
                 })}
             </ol>
-            <AddComment />
         </div>
     )
 };
