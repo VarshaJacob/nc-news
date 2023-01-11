@@ -2,6 +2,7 @@ import {Routes, Route} from 'react-router-dom';
 import SingleArticle from './SingleArticle';
 import TopicArticleDisplay from './TopicArticleDisplay';
 import CommentList from './CommentList';
+import ArticleByTopic from './ArticleByTopic'
 
 const Nav = () => {
     return (
@@ -11,6 +12,7 @@ const Nav = () => {
                     path="/" element={<TopicArticleDisplay />}
                 ></Route>
                 <Route path="/articles/:article_id" element={<SingleArticle />}></Route>
+                <Route path="/:topic" element={<ArticleByTopic />}></Route>
             </Routes>
         </div>
     )
