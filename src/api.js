@@ -28,7 +28,7 @@ export const getCommentsByArticle = (article_id) => {
     })
 }
 
-export const patchArticleUpVote = (article_id,changeVote) => {
+export const patchArticleVote = (article_id,changeVote) => {
     const patchBody = {inc_votes: changeVote}
     return ncnewsApi.patch(`/articles/${article_id}`,patchBody).then(res => {
         return res.data

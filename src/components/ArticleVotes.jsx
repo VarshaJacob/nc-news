@@ -1,29 +1,22 @@
 import { useEffect, useState } from "react";
-import { patchArticleUpVote } from "../api";
+import { patchArticleVote } from "../api";
 
 const ArticleVotes = ({article_id,articleVotes}) => {
 
-    const [updateArticleVotes, setUpdateArticleVotes] = useState(0)
-    const [voteChange,setVoteChange] = useState(0)
+    const [userVote, setUserVote] = useState(0)
     const [isError, setIsError] = useState(false)
 
     useEffect(() => {
-        setUpdateArticleVotes(articleVotes)
-    },[])
+        setUserVote(articleVotes)
+    },[articleVotes])
     
     const updateVote = (changeVote) => {
         setIsError(false)
-        setVoteChange(changeVote)
-        setUpdateArticleVotes((currVote) => currVote+voteChange)
-        patchArticleUpVote(article_id,changeVote)
-        .then(res => {
-            setUpdateArticleVotes(res.updatedArticle.votes)
-            setUpdateArticleVotes((currVote) => currVote-voteChange)
-            setVoteChange(0)
-        })
+        setUserVote((currVote) => currVote+changeVote)
+        patchArticleVote(article_id,changeVote)
         .catch(err => {
             setIsError(true)
-            setVoteChange(0)
+            setUserVote((currVote) => currVote-changeVote)
         })
 
     }
@@ -31,7 +24,7 @@ const ArticleVotes = ({article_id,articleVotes}) => {
     return ( 
     <div>
         <section>
-        <p className='ArticleVotes'>Votes: {updateArticleVotes}</p>
+        <p className='ArticleVotes'>Votes: {userVote}</p>
         </section>
         <section className="VoteSection">
         <button className="UpVoteButton" onClick={() => updateVote(1)}></button>
