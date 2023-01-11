@@ -21,7 +21,7 @@ const CommentList = () => {
 
 
     if (isLoading) {
-        return <p>Loading ...</p>
+        return <p className="Loading">Loading ...</p>
     }
 
     return (
@@ -29,7 +29,7 @@ const CommentList = () => {
             <ol>
                 {commentList.map(comment => {
                     return (
-                        <li className="CommentDetails">
+                        <li className="CommentDetails" key={comment.comment_id}>
                         <p className="CommentAuthor">Author: {comment.author}</p>
                         <p className="CommentBody">{comment.body}</p>
                         <p className="CommentVotes">Votes: {comment.votes}</p>

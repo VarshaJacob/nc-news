@@ -17,7 +17,7 @@ const ArticleList = () => {
     },[])
 
     if (isLoading) {
-        return <p>Articles are Loading ...</p>
+        return <p className="Loading">Articles are Loading ...</p>
     }
 
     return (
@@ -26,7 +26,7 @@ const ArticleList = () => {
                 {articleList.map(article => {
                     return (
                         <Link to={`/articles/${article.article_id}`} style={{textDecoration:'none'}}>
-                        <li className="ArticleCard">
+                        <li className="ArticleCard" key={article.article_id}>
                         <h3>{article.title}</h3>
                         <p>Author: {article.author}</p>
                         <p>Topic: {article.topic}</p>
