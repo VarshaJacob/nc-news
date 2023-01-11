@@ -32,10 +32,6 @@ const AddComment = ({article_id}) => {
         }
     }
 
-    console.log(addedCommentList)
-
-    
-
     return (
         <div>
             <form className="AddComment" onSubmit={commentPost}>
