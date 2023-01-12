@@ -25,11 +25,12 @@ const TopicList = () => {
             <ol className='TopicList'>
                 {topicList.map(topic => {
                     return (
-                             <Link to={`/${topic}`} style={{textDecoration:'none'}} className='Topic'>
-                            <li>
-                                {topic[0].toUpperCase()+topic.slice(1)}
-                            </li>
-                        </Link>
+                    
+                    <Link to={`/${topic}`} style={{textDecoration:'none'}} className='Topic'>
+                        <li>
+                            {topic[0].toUpperCase()+topic.slice(1)}
+                        </li>
+                    </Link>
                     )
                 })}
             
