@@ -1,6 +1,7 @@
 import {getTopics} from '../api';
 import { useState,useEffect } from 'react';
 import { Link } from 'react-router-dom'
+import SortList from './SortList';
 
 const TopicList = () => {
 
@@ -36,6 +37,11 @@ const TopicList = () => {
             
             <Link to={'/'} style={{textDecoration:'none'}} className='Topic'><li>All</li></Link>
             </ol>
+            <section className="CommentList">
+                <details><summary>Sort</summary>
+                <SortList />
+                </details>
+            </section>
         </div>
     )
 };
