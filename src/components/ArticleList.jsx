@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { getArticles } from "../api";
+import TopicList from "./TopicList";
 
 
 const ArticleList = () => {
 
     const [articleList, setArticleList] = useState([])
     const [isLoading,setIsLoading] = useState(true)
+    const {topic} = useParams()
 
     useEffect(() => {
         setIsLoading(true)
@@ -16,24 +18,38 @@ const ArticleList = () => {
         })
     },[])
 
+
     if (isLoading) {
         return <p className="Loading">Articles are Loading ...</p>
     }
 
     return (
-        <div className="ArticleList">
-            <ol>
+        <div>
+            <TopicList />
+            <ol className="ArticleList">
                 {articleList.map(article => {
-                    return (
-                        <Link to={`/articles/${article.article_id}`} style={{textDecoration:'none'}}>
-                        <li className="ArticleCard" key={article.article_id}>
-                        <h3>{article.title}</h3>
-                        <p>Author: {article.author}</p>
-                        <p>Topic: {article.topic}</p>
-                        </li>
-                        </Link>
-                       
-                    )
+                    if (topic === undefined) {
+                        return (
+                            <Link to={`/articles/${article.article_id}`} style={{textDecoration:'none'}}>
+                            <li className="ArticleCard" key={article.article_id}>
+                            <h3>{article.title}</h3>
+                            <p>Author: {article.author}</p>
+                            <p>Topic: {article.topic}</p>
+                            </li>
+                            </Link> 
+                        )
+                    } else if(article.topic === topic) {
+                        return (
+                            <Link to={`/articles/${article.article_id}`} style={{textDecoration:'none'}}>
+                            <li className="ArticleCard" key={article.article_id}>
+                            <h3>{article.title}</h3>
+                            <p>Author: {article.author}</p>
+                            <p>Topic: {article.topic}</p>
+                            </li>
+                            </Link> 
+                        )
+                    }
+                    
                 })}
             </ol>
         </div>
