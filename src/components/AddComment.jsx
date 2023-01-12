@@ -5,7 +5,6 @@ const AddComment = ({article_id}) => {
 
     const [commentInput, setCommentInput] = useState("")
     const [addedCommentList, setAddedCommentList] = useState([])
-    const [dataValid, setDataValid] = useState(true)
     const [isPosting,setIsPosting] = useState(false)
     const [isPosted,setIsPosted] = useState(false)
 
@@ -14,10 +13,8 @@ const AddComment = ({article_id}) => {
         e.preventDefault();
         if (commentInput.length === 0) {
             e.preventDefault();
-            setDataValid(false)
             setIsPosted(false)
         } else {
-            setDataValid(true)
             setIsPosting(true)
             postComment(article_id,commentInput)
             .then(res => {
@@ -32,8 +29,7 @@ const AddComment = ({article_id}) => {
     return (
         <div>
             <form className="AddComment" onSubmit={commentPost}>
-            <input type="text" placeholder="Comment..." value={commentInput} className="AddCommentInput" onChange={(e) => setCommentInput(e.target.value)}></input>
-            {dataValid?null:<p>Please enter a comment</p>}
+            <textarea type="text" placeholder="Comment..." value={commentInput} className="AddCommentInput" required onChange={(e) => setCommentInput(e.target.value)}></textarea>
             {isPosting?<p>Posting....</p>:null}
             <button className="PostButton">Post</button>
         </form>
