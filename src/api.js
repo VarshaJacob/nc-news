@@ -40,3 +40,10 @@ export const patchArticleVote = (article_id,changeVote) => {
         return res.data
     })
 }
+
+export const postComment = (article_id, newComment) => {
+    const postNewComment = {username: "cooljmessy", body: newComment}
+    return ncnewsApi.post(`/articles/${article_id}/comments`,postNewComment).then(res => {
+        return res.data
+    })
+}
