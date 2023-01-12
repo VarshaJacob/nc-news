@@ -1,11 +1,12 @@
 import {getTopics} from '../api';
 import { useState,useEffect } from 'react';
-import '../App.css'
+import { Link } from 'react-router-dom'
 
 const TopicList = () => {
 
     const [topicList, setTopicList] = useState([])
     const [isLoading,setIsLoading] = useState(true)
+    
 
     useEffect (() => {
         setIsLoading(true)
@@ -20,22 +21,21 @@ const TopicList = () => {
     }
 
     return (
-        <div className='TopicList'>
-            <form>
+        <div>
+            <ol className='TopicList'>
                 {topicList.map(topic => {
                     return (
-                        <div className='Topic'>
-                            <input
-                            type='checkbox'
-                            name={topic}
-                            value={topic}
-                            id={topic}>
-                            </input>
-                            <label>{topic[0].toUpperCase()+topic.slice(1)}</label>
-                        </div>
-                    )})}
-                    <button className='FilterButton'>Filter</button>
-            </form>
+                    
+                    <Link to={`/${topic}`} style={{textDecoration:'none'}} className='Topic'>
+                        <li>
+                            {topic[0].toUpperCase()+topic.slice(1)}
+                        </li>
+                    </Link>
+                    )
+                })}
+            
+            <Link to={'/'} style={{textDecoration:'none'}} className='Topic'><li>All</li></Link>
+            </ol>
         </div>
     )
 };

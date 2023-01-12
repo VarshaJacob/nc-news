@@ -1,16 +1,17 @@
 import {Routes, Route} from 'react-router-dom';
 import SingleArticle from './SingleArticle';
-import TopicArticleDisplay from './TopicArticleDisplay';
 import CommentList from './CommentList';
+import ArticleList from './ArticleList'
 
 const Nav = () => {
     return (
         <div>
             <Routes>
                 <Route
-                    path="/" element={<TopicArticleDisplay />}
+                    path="/" element={<ArticleList />}
                 ></Route>
                 <Route path="/articles/:article_id" element={<SingleArticle />}></Route>
+                <Route path="/:topic" element={<ArticleList />}></Route>
             </Routes>
         </div>
     )

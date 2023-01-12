@@ -52,14 +52,27 @@
 }
 
 .TopicList {
-  text-indent: 45%;
+ 
+  background-color: #4d8ea0;
+  list-style: none;
+  margin: 10px auto;
+  text-align: center;
+  
 }
 
 .Topic {
-  color: #52ab98;
+  color: #f1f6f4;
+  font-weight: 400;
   margin: auto;
   padding: 5px;
   font-size:medium;
+  display:inline-block;
+  padding: 10px 10px;
+
+}
+
+.Topic:hover {
+  background-color: #79cdbb;
 }
 
 .FilterButton {
@@ -72,7 +85,7 @@
 
 .ArticleList {
   
-  width: 80%;
+  width: 90%;
   margin: auto;
   padding: 20px;
 }

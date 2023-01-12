@@ -26,7 +26,8 @@ const CommentList = () => {
 
     return (
         <div >
-            <AddComment article_id={article_id} setCommentList={setCommentList}/>
+
+            <AddComment article_id={article_id}/>
             <ol className="CommentList">
                 {commentList.map(comment => {
                     return (
