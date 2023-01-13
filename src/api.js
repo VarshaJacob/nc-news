@@ -10,14 +10,8 @@ export const getTopics = () => {
     })
 };
 
-export const getArticles = (topic) => {
-    let url='/articles'
-
-    if (topic) {
-        url += `?topic=${topic}`
-    }
-
-    return ncnewsApi.get(url).then(res => {
+export const getArticles = (sort_by,order,topic) => {
+    return ncnewsApi.get('/articles', {params: {"sort_by":sort_by,"order":order,"topic":topic}}).then(res => {
         return res.data
     })
 };

@@ -1,6 +1,7 @@
 import {getTopics} from '../api';
 import { useState,useEffect } from 'react';
 import { Link } from 'react-router-dom'
+import SortList from './SortList';
 
 const TopicList = () => {
 
@@ -26,7 +27,7 @@ const TopicList = () => {
                 {topicList.map(topic => {
                     return (
                     
-                    <Link to={`/${topic}`} style={{textDecoration:'none'}} className='Topic'>
+                    <Link to={`/${topic}`} style={{textDecoration:'none'}} className='Topic' key={topic}>
                         <li>
                             {topic[0].toUpperCase()+topic.slice(1)}
                         </li>
@@ -36,6 +37,11 @@ const TopicList = () => {
             
             <Link to={'/'} style={{textDecoration:'none'}} className='Topic'><li>All</li></Link>
             </ol>
+            <section className="Sorting">
+                <details><summary>Sort</summary>
+                <SortList />
+                </details>
+            </section>
         </div>
     )
 };

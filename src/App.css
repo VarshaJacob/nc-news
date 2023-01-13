@@ -203,3 +203,14 @@
   margin: auto;
 }
 
+.SortList {
+  list-style: none;
+  padding:0px 10px;
+}
+
+.Sorting {
+  padding: 15px 15px;
+  display: flex;
+  justify-content: flex-end;
+}
+
