@@ -37,7 +37,7 @@ const TopicList = () => {
             
             <Link to={'/'} style={{textDecoration:'none'}} className='Topic'><li>All</li></Link>
             </ol>
-            <section className="CommentList">
+            <section className="Sorting">
                 <details><summary>Sort</summary>
                 <SortList />
                 </details>

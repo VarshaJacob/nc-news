@@ -9,10 +9,15 @@ const ArticleList = () => {
     const [articleList, setArticleList] = useState([])
     const [isLoading,setIsLoading] = useState(true)
     const {topic} = useParams()
+    let [queries,setQueries] = useSearchParams()
+
+    const sortByQuery = queries.get('sort_by')
+    const orderQuery = queries.get('order')
+
 
     useEffect(() => {
         setIsLoading(true)
-        getArticles(topic).then(res => {
+        getArticles(sortByQuery,orderQuery,topic).then(res => {
             setArticleList(res.articles)
             setIsLoading(false)
         })
@@ -33,6 +38,7 @@ const ArticleList = () => {
                         <h3>{article.title}</h3>
                         <p>Author: {article.author}</p>
                         <p>Topic: {article.topic}</p>
+                        <p>Votes: {article.votes}</p>
                         </li>
                         </Link> 
                     )

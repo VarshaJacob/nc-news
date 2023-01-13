@@ -10,12 +10,22 @@ export const getTopics = () => {
     })
 };
 
-export const getArticles = (topic) => {
+export const getArticles = (sort_by,order,topic) => {
     let url='/articles'
 
     if (topic) {
         url += `?topic=${topic}`
+    } else {
+        url += `?`
     }
+    
+    if (sort_by) {
+        (sort_by==='date')?url += `&sort_by=created_at`:url += `&sort_by=${sort_by}`
+    }
+    if (order) {
+        url += `&order=${order}`
+    }
+
 
     return ncnewsApi.get(url).then(res => {
         return res.data
