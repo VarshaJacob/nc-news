@@ -1,21 +1,15 @@
-import {Link} from 'react-router-dom';
-
 const SortList = () => {
-    const sortList =['date','votes']
+    const sortList ={Date:'created_at',Votes:'votes', Comments:'comment_count'}
     const orderList=['asc','desc']
-
-    const sortSubmit = (sort) => {
-        console.log(sort)
-    }
 
     return (
         <div>
             <form>
                 <ol className='SortList'>
-                {sortList.map(sort => {
+                {Object.keys(sortList).map(sort => {
                 return (
-                    <li>
-                         <input type="radio" key={sort} name="sort_by" value={sort}></input><label>{sort[0].toUpperCase()+sort.slice(1)}</label> 
+                    <li key={sort}>
+                         <input type="radio"  name="sort_by" value={sortList[sort]} required></input><label>{sort[0].toUpperCase()+sort.slice(1)}</label> 
                     </li>      
                 )
                 })}  
@@ -23,8 +17,8 @@ const SortList = () => {
                 <ol className='SortList'>
                 {orderList.map(order => {
                 return (
-                    <li>
-                         <input type="radio" key={order} name="order" value={order}></input><label>{order[0].toUpperCase()+order.slice(1)}</label> 
+                    <li key={order}>
+                         <input type="radio"  name="order" value={order} required></input><label>{order[0].toUpperCase()+order.slice(1)}</label> 
                     </li>       
                 )
                 })}  

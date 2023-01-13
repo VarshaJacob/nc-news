@@ -27,7 +27,7 @@ const TopicList = () => {
                 {topicList.map(topic => {
                     return (
                     
-                    <Link to={`/${topic}`} style={{textDecoration:'none'}} className='Topic'>
+                    <Link to={`/${topic}`} style={{textDecoration:'none'}} className='Topic' key={topic}>
                         <li>
                             {topic[0].toUpperCase()+topic.slice(1)}
                         </li>
